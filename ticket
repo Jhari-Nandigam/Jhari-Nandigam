@@ -1,0 +1,35 @@
+class Ticket
+{
+    private int ticketid;
+    private int price;
+    private static int availableTickets;
+    public void setavailableTickets(int availableTickets)
+    {
+        if(availableTickets<1)
+            System.out.println("Number of tickets ust be greater than 0");
+        else
+            this.availableTickets=availableTickets;
+    }
+    public int getavailableTickets()
+    {
+        return availableTickets;
+    }
+    public int getAmount(int nooftickets)
+    {
+        return calculateTicketCost(nooftickets);
+    }
+    public void setData(int ticketid,int price)
+    {
+        this.ticketid=ticketid;
+        this.price=price;
+    }
+    public int calculateTicketCost(int nooftickets)
+    {
+        if(nooftickets>availableTickets)
+        {
+            return -1;
+        }
+        availableTickets=availableTickets-nooftickets;
+        return nooftickets*price;
+    }
+}
